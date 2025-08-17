@@ -1,52 +1,91 @@
-# 📄 Informe Final: Análisis de Evasión de Clientes (Churn) en TelecomX
+# 📊 Análisis de Evasión de Clientes (Churn) en TelecomX
+
+Este proyecto utiliza Python y pandas para analizar los factores que influyen en la evasión de clientes (churn) en una empresa de telecomunicaciones. El análisis se realiza en un Jupyter Notebook y abarca desde la carga y limpieza de datos hasta la visualización y generación de insights accionables.
 
 ---
 
-## 🔹 Introducción
+## 🚀 Contenido del Notebook
 
-El objetivo de este análisis es comprender los factores que influyen en la evasión de clientes (Churn) en TelecomX. La evasión de clientes es un problema crítico para las empresas de telecomunicaciones, ya que impacta directamente en los ingresos y la sostenibilidad del negocio. Identificar patrones y variables asociadas al churn permite diseñar estrategias efectivas para la retención de clientes.
+### 1. **Extracción de Datos**
+- **Carga de datos:** Se importa un archivo JSON público con información de clientes de TelecomX.
+- **Librerías:** Uso de `pandas` para manipulación de datos y `matplotlib`/`seaborn` para visualización.
 
----
+### 2. **Transformación y Limpieza**
+- **Normalización:** Se aplana la estructura anidada del JSON usando `pd.json_normalize`.
+- **Verificación:** Se identifican valores ausentes, duplicados y errores de formato.
+- **Estandarización:** 
+  - Se eliminan duplicados.
+  - Se estandarizan strings (minúsculas, sin espacios).
+  - Se convierten variables binarias a 0/1.
+  - Se convierten columnas numéricas a tipo adecuado.
+  - Se reemplazan valores nulos por "no informado" o 0 según el caso.
+- **Creación de variables:** Se agrega la columna `cuentas_diarias` (gasto diario promedio).
 
-## 🔹 Limpieza y Tratamiento de Datos
+### 3. **Análisis Descriptivo**
+- **Estadísticas generales:** Uso de `describe()`, media, mediana y desviación estándar para variables numéricas.
+- **Distribución de variables categóricas:** Conteo de valores únicos y proporciones.
 
-- **Importación:** Se cargaron los datos desde un archivo JSON público.
-- **Normalización:** Se aplanó la estructura anidada del dataset para facilitar el análisis.
-- **Verificación:** Se identificaron y corrigieron valores ausentes, duplicados y errores de formato.
-- **Estandarización:** Se homogenizaron los valores de las variables categóricas (minúsculas, sin espacios, valores binarios a 0/1).
-- **Conversión:** Se aseguraron los tipos de datos correctos para variables numéricas y categóricas.
-- **Nuevas variables:** Se creó la columna `cuentas_diarias` para analizar el gasto diario promedio de los clientes.
+### 4. **Visualización de Evasión**
+- **Gráficos de barras y pastel:** Para visualizar la proporción de clientes que permanecen y los que se dieron de baja.
+- **Análisis por variables categóricas:** Gráficos segmentados por género, tipo de contrato, método de pago, etc.
+- **Análisis por variables numéricas:** Boxplots para comparar cargos, antigüedad y gasto diario entre clientes que cancelaron y los que no.
 
----
+### 5. **Conclusiones e Insights**
+- Resumen de hallazgos clave sobre los factores asociados a la evasión.
+- Identificación de perfiles de clientes con mayor riesgo de churn.
 
-## 🔹 Análisis Exploratorio de Datos
-
-- **Distribución de Churn:** Se visualizó la proporción de clientes que permanecen y los que se dieron de baja, tanto en gráfico de barras como de pastel.
-- **Variables categóricas:** Se analizaron variables como género, tipo de contrato, método de pago e internet, observando su relación con la evasión mediante gráficos de barras segmentados.
-- **Variables numéricas:** Se exploró la distribución de cargos mensuales, total gastado, tiempo de contrato y cuentas diarias, diferenciando entre clientes que cancelaron y los que no, usando boxplots.
-- **Estadísticas descriptivas:** Se calcularon medidas como media, mediana y desviación estándar para comprender la dispersión y tendencia central de las variables clave.
-
----
-
-## 🔹 Conclusiones e Insights
-
-- **Churn:** Existe un porcentaje significativo de clientes que han abandonado la empresa.
-- **Tipo de contrato:** Los contratos mensuales presentan mayor tasa de evasión comparados con contratos a plazo fijo.
-- **Método de pago:** Los clientes que pagan con métodos electrónicos o facturación sin papel tienden a tener mayor churn.
-- **Antigüedad:** Los clientes con menor tiempo de contrato (tenure) muestran mayor propensión a cancelar.
-- **Gasto:** Los clientes con cargos mensuales más bajos y menor gasto total presentan mayor evasión.
-- **Servicios adicionales:** La falta de servicios adicionales (seguridad, soporte, streaming) puede estar asociada a mayor churn.
+### 6. **Recomendaciones**
+- Sugerencias estratégicas para reducir la evasión, como programas de fidelización, incentivos y educación al cliente.
 
 ---
 
-## 🔹 Recomendaciones
+## 🛠️ Requerimientos
 
-- **Fidelización:** Implementar programas de retención enfocados en clientes con contratos mensuales y baja antigüedad.
-- **Incentivos:** Ofrecer descuentos o beneficios a quienes utilicen métodos de pago asociados a mayor churn.
-- **Servicios adicionales:** Promover la contratación de servicios complementarios para aumentar el valor percibido.
-- **Seguimiento personalizado:** Identificar y contactar proactivamente a clientes con bajo gasto y menor tiempo de permanencia.
-- **Educación:** Informar a los clientes sobre las ventajas de contratos a largo plazo y servicios adicionales.
+### Paquetes de Python
+
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `jupyter` (opcional, pero recomendado para ejecutar el notebook)
+
+Instala los requerimientos con:
+
+```bash
+pip install pandas matplotlib seaborn jupyter
+```
+
+### Archivos necesarios
+
+- El notebook principal: `TelecomX_LATAM.ipynb`
+- Acceso a internet para descargar el dataset JSON desde GitHub.
 
 ---
 
-> **Este análisis proporciona una base sólida para la toma de decisiones estratégicas orientadas a reducir la evasión y mejorar la satisfacción del cliente en TelecomX.**
+## 📋 Ejecución paso a paso
+
+1. **Abre el notebook en Jupyter o Visual Studio Code.**
+2. **Ejecuta las celdas en orden:**
+   - Carga y visualización inicial de los datos.
+   - Limpieza y transformación.
+   - Creación de nuevas variables.
+   - Análisis descriptivo y visualizaciones.
+   - Consulta de conclusiones y recomendaciones al final del notebook.
+3. **Personaliza el análisis:** Puedes modificar las variables analizadas o agregar nuevas visualizaciones según tus necesidades.
+
+---
+
+## 📈 Resultados esperados
+
+- **Visualizaciones claras** sobre la distribución de churn y su relación con variables clave.
+- **Insights accionables** para reducir la evasión de clientes.
+- **Código limpio y comentado** para facilitar la reutilización y adaptación a otros datasets similares.
+
+---
+
+## 📞 Contacto
+
+Para dudas o sugerencias, puedes abrir un issue o contactar al autor del repositorio.
+
+---
+
+> ¡Este proyecto es una base sólida para cualquier análisis de churn en empresas de servicios!
